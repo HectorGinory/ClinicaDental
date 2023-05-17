@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export const InputText = ({type, className, placeholder, name, handler, required}) => {
+export const InputText = ({type, className, placeholder, name, handler, required, value, disabled}) => {
 
     return (
-        <div className='inputTextDesign'>
+        <div className='input-container'>
             <input 
                 type={type}
                 className={className}
@@ -11,6 +11,7 @@ export const InputText = ({type, className, placeholder, name, handler, required
                 name={name}
                 onChange={(e)=>handler(e)}
                 required={required}
+                value={value ? value : ""}
             />
         </div>
     )

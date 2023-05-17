@@ -15,8 +15,9 @@ body {
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .click {
@@ -25,11 +26,19 @@ body {
 
 .body {
     width: 100vw;
-    min-height: 94vh;
+    height: 90vh;
+    overflow: hidden;
 }
 
 .flex-c-c {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.container {
+    border: .1rem solid #00afe4;
+    border-radius: 1rem;
+    box-shadow: 0 0 2rem #00e4be2d;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.662), rgba(255, 255, 255, 0.062), rgba(255, 255, 255, 0.662));
 }
