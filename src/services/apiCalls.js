@@ -44,16 +44,25 @@ export const updateUserId = async(id,credentials, token) => {
 }
 
 export const findAllOfAny = async(token, path, criteria) => {
-    if(criteria !== "") {
-        if(path !== "quote") {
+
+    if(path !== "quote") {
+        if(criteria !== "") {
             const res =  await axios.get(`${url}${path}?name=${criteria}`, config(token))
             return res.data
         } else {
-            const res =  await axios.get(`${url}${path}`, config(token))
+            const res = await axios.get(`${url}${path}`, config(token))
             return res.data
         }
     } else {
-        const res = await axios.get(`${url}${path}`, config(token))
+        console.log(path)
+        let dateOfQuote = criteria.dateOfQuote ? `${criteria.dateOfQuote}T00:00:00` : ""
+        let endOfQuote = criteria.endOfQuote ? `${criteria.endOfQuote}T00:00:00` : ""
+        console.log(dateOfQuote)
+        console.log(endOfQuote)
+        const res =  await axios.get(`${url}${path}?`+ (dateOfQuote === "" ? "" 
+                                    : `dateOfQuote=${dateOfQuote}`) +(dateOfQuote !== "" && endOfQuote !== "" ? '&' : "") 
+                                    +(endOfQuote === "" ? "" 
+                                    : `endOfQuote=${endOfQuote}`), config(token))
         return res.data
     }
 }

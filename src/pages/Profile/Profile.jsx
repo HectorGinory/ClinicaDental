@@ -70,14 +70,14 @@ const credentialsHandler = (e) => {
       <Spinner />
     </> 
     : 
-    <div className='profile-info'>
+    <div className='profile-info container'>
         <div className='principal-info'>
           {changeProfile ? <>
             <label>
             <p>Name:</p>
             <InputText 
                 type={"text"}
-                className={"input-register"}
+                className={"input"}
                 placeholder={"Insert name"}
                 name={"name"}
                 handler={credentialsHandler}
@@ -89,7 +89,7 @@ const credentialsHandler = (e) => {
             <p>Email:</p>
             <InputText 
                 type={"email"}
-                className={"input-register"}
+                className={"input"}
                 placeholder={"Email@gmail.com"}
                 name={"email"}
                 handler={credentialsHandler}
@@ -101,7 +101,7 @@ const credentialsHandler = (e) => {
             <p>Number:</p>
             <InputText 
                 type={"text"}
-                className={"input-register"}
+                className={"input"}
                 placeholder={"Your telephone"}
                 name={"number"}
                 handler={credentialsHandler}
@@ -113,7 +113,7 @@ const credentialsHandler = (e) => {
             <p>Address:</p>
             <InputText 
                 type={"text"}
-                className={"input-register"}
+                className={"input"}
                 placeholder={"Your telephone"}
                 name={"address"}
                 handler={credentialsHandler}

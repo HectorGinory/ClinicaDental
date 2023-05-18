@@ -1,0 +1,102 @@
+.database-controller {
+    flex-direction: column;
+    width: 30rem;
+    height: 20rem;
+    justify-content: space-between;
+    padding: 5rem;
+}
+
+.database-controller .nav-sections {
+    width: 90%;
+    justify-content: space-around;
+    height: 3rem;
+    gap: 1rem;
+}
+
+.database-controller .nav-sections button {
+    font-size: 1.5rem;
+    border: 0 solid #00afe4;
+    background: transparent;
+    color: #00afe4;
+    box-shadow: 0 0 0rem #00afe4;
+    box-sizing: border-box;
+    transition: .2s;
+    width: 10rem;
+}
+
+.database-controller .nav-sections button:hover {
+    box-shadow: 0 .2rem 0rem #00afe4;
+}
+
+.database-controller .database-sections{
+    height: 15rem;
+    width: 100%;
+}
+
+.body-filterinformation {
+    height: 80%;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 90%;
+    gap: 2rem;
+}
+
+.body-filterinformation .input-section {
+    height: 30%;
+    width: 90%;
+    flex-direction: column;
+    color: #00afe4;
+    font-weight: bold;
+    font-size: 1.3rem;
+    gap: .3rem;
+}
+
+.body-filterinformation .input-section input {
+    width: 90%;
+    outline: none;
+    border: 1px solid #00afe4;
+    border-radius: 2rem;
+    text-align: center;
+}
+
+.body-filterinformation .input-section .date-info {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.body-filterinformation .input-section .date-info label {
+    flex-direction: column;
+    width: 45%;
+}
+
+.body-filterinformation .input-section .date-info button {
+    border: 0;
+    background: transparent;
+    color: #00afe4;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+.body-filterinformation .filtered-information {
+    height: 65%;
+    width: 90%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.body-filterinformation .filtered-information .filtered-data {
+    width: 100%;
+    border-bottom: 1px solid #00afe43f;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 1rem;
+    height: 2rem;
+    color: #002cbe;
+    display: flex;
+    font-size: 0.9rem;
+}
+
+.body-filterinformation .filtered-information .filtered-data label {
+    width: 45%;
+}

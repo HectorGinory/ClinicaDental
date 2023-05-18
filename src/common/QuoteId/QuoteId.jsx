@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import { userData } from '../../pages/userSlice'
 import { getQuoteId, uploadQuoteById } from '../../services/apiCalls'
-import Spinner from '../Spinner/Spinner'
+import Spinner from '../spinner/Spinner'
 
 const QuoteId = () => {
 
@@ -109,8 +109,6 @@ const QuoteId = () => {
       <p>At:</p>
       <input type="date" onChange={(e)=>{
         setDateInfo((prev) => ({...prev, dateOfQuote: e.target.value}))
-        console.log(dateInfo)
-        console.log(e.target.value)
       }}></input>
       <div className='hourInput-container'>
       {hours.map((hour, index)=>{

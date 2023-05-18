@@ -42,3 +42,7 @@ body {
     box-shadow: 0 0 2rem #00e4be2d;
     background: linear-gradient(45deg, rgba(255, 255, 255, 0.662), rgba(255, 255, 255, 0.062), rgba(255, 255, 255, 0.662));
 }
+
+::-webkit-scrollbar{
+    display: none;
+  }

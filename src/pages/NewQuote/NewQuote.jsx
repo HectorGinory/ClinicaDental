@@ -102,16 +102,14 @@ const NewQuote = () => {
             />
             <div className="filtered-information">
               {data.length !== 0 &&
-                data.map((res) => (
+                data.map((res) => (                
                   <div
-                    className="user click"
+                    className="user click filtered-data flex-c-c"
                     onClick={() => customerChoosed(res._id)}
                     key={res._id}
                   >
-                    <p>
-                      <span>{res.name}</span>
-                      <span>{` - ${res.dni}`}</span>
-                    </p>
+                  <p>{res.name.charAt(0).toUpperCase() + res.name.slice(1)}</p>
+                  <p>{res.dni}</p>
                   </div>
                 ))}
             </div>
