@@ -5,6 +5,7 @@ import { userData } from "../userSlice";
 import { FilteredInformation } from "../../common/FilteredInformation/FilteredInformation";
 import { createNewQuote, findAllOfAny } from "../../services/apiCalls";
 import { useNavigate } from "react-router-dom";
+import './NewQuote.css'
 
 const NewQuote = () => {
   const [credentials, setCredentials] = useState({
@@ -91,16 +92,19 @@ const NewQuote = () => {
   };
 
   return (
-    <div className="newquote-container">
+    <div className="newquote-container container">
       <div className="newquote-form">
         {chooseCustomer ? (
-          <div className="choose-user">
-            <input
+          <div className="choose-user flex-c-c">
+          <label>
+          Choose a user
+          <input
               onChange={(e) => criteriaHandler(e)}
               name="criteria"
               type="text"
             />
-            <div className="filtered-information">
+          </label>
+            <div className="filtered-information container">
               {data.length !== 0 &&
                 data.map((res) => (                
                   <div
@@ -115,14 +119,15 @@ const NewQuote = () => {
             </div>
           </div>
         ) : (
-          <div className="newQuote">
-            <label>Date</label>
+          <div className="newQuote container flex-c-c">
+            <label className="container section flex-c-c">Date
             <input type="date" onChange={(e)=>setDateInfo((prev) => ({...prev, dateOfQuote: e.target.value}))}></input>
-            <label>Quote</label>
-            <div className="quote-selection">
+            </label>
+            <label className="container section flex-c-c">Quote
+            <div className="container flex-c-c selection">
               {specialities.map((data) => {
                 return (
-                  <div className="specialitie" key={data.id} onClick={()=>{
+                  <div className="data click flex-c-c" key={data._id} onClick={()=>{
                     setCredentials((prev) => ({...prev, quote: data._id}))
                     setDateInfo((prev) => ({...prev, duration: data.duration}))
                     setSpecialitieChoosed(data)
@@ -132,28 +137,34 @@ const NewQuote = () => {
                 );
               })}
             </div>
-            <div className="hour-selection">
+            </label>
+            <label className="container section flex-c-c">
+            Choose an hour:
+            <div className="container flex-c-c selection">
               {hours.map((hour, index)=>{
                 return(
-                  <div key={index} className="click" onClick={()=>setDateInfo((prev) => ({...prev, hour: hour}))}>
+                  <div key={index} className="data click flex-c-c" onClick={()=>setDateInfo((prev) => ({...prev, hour: hour}))}>
                     <p>{hour}</p>
                   </div>
                 )
               })}
             </div>
-            <div className="dentist-selection">
+            </label>
+            <label className="container section flex-c-c">
+            <p>Dentist:</p>
+            <div className="container flex-c-c selection">
             {Object.keys(specialitieChoosed).length > 0 && 
               specialitieChoosed.dentists.map((data)=> {
               return (
-                <p className="click" onClick={()=>setCredentials((prev) => ({...prev, dentist: data._id}))}>{data.name}</p>
+                <p className="data click flex-c-c" onClick={()=>setCredentials((prev) => ({...prev, dentist: data._id}))}>{data.name}</p>
               )
             })}
             </div>
-            <button type="submit" onClick={()=>createQuote()}>aaaa</button>
+            </label>
+            <button type="submit" onClick={()=>createQuote()} className="btn">Create Quote</button>
           </div>
         )}
       </div>
-      <div onClick={()=>console.log(credentials, dateInfo)}>asss</div>
     </div>
   );
 };

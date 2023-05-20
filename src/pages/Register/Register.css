@@ -67,3 +67,22 @@
     filter: brightness(1.1);
     border-radius: .6rem;
 }
+
+@media (max-width: 425px) {
+    .register-container {
+        width: 300px;
+        height: 28rem;
+    }
+
+    .register-container .form label {
+        font-size: 1rem;
+    }
+
+    .register-container .form label .input-container .input {
+        height: 1.2rem;
+    }
+
+    .register-container .btn {
+        font-size: .9rem;
+    }
+}

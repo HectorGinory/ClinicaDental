@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import { userData } from '../../pages/userSlice'
 import { getQuoteId, uploadQuoteById } from '../../services/apiCalls'
-import Spinner from '../spinner/Spinner'
+import Spinner from '../Spinner/Spinner'
+import './QuoteId.css'
 
 const QuoteId = () => {
 
@@ -28,7 +29,6 @@ const QuoteId = () => {
         })
         .catch((e)=>{
             navigate("/")
-            
         })
       },[])
 
@@ -84,7 +84,11 @@ const QuoteId = () => {
 
       const uploadQuote = () => {
         uploadQuoteById(userRdxData.credentials.token, quoteId, credentials).then((res)=> {
-          navigate("/profile")
+          if(userRdxData.credentials.user.rol === "Admin") {
+            navigate("/admin")
+          } else {
+            navigate("/profile")
+          }
         })
       }
   return (
@@ -94,35 +98,41 @@ const QuoteId = () => {
         <Spinner />
     </>
     :    
-    <>
-    <div className='actual-quote'>
-      <h3>Actual Quote</h3>
+    <div className='container flex-c-c quoteId-info'>
+    <div className='actual-quote container flex-c-c'>
+    <div>
+    <h3>Actual Quote</h3>
       <p>Customer: {quote.customer.name}</p>
       <p>Dentist: {quote.dentist.name}</p>
       <p>Type of quote: {quote.quote.name}</p>
       <p>At: {formatedDate(quote.dateOfQuote)}</p>
-      <button onClick={()=>setChangeQuote(true)}>Change Day</button>
+    </div>
+      <button onClick={()=>setChangeQuote(true)} className='btn'>Change Day</button>
     </div>
     {changeQuote && 
-      <div className='actual-quote'>
+      <div className='actual-quote container flex-c-c'>
+      <div>
       <h3>Change Quote</h3>
+      <div className='section container flex-c-c'>
       <p>At:</p>
       <input type="date" onChange={(e)=>{
         setDateInfo((prev) => ({...prev, dateOfQuote: e.target.value}))
       }}></input>
-      <div className='hourInput-container'>
+      <div className='selection container flex-c-c'>
       {hours.map((hour, index)=>{
                 return(
-                  <div key={index} className="click" onClick={()=>setDateInfo((prev) => ({...prev, hour: hour}))}>
+                  <div key={index} className="data click flex-c-c" onClick={()=>setDateInfo((prev) => ({...prev, hour: hour}))}>
                     <p>{hour}</p>
                   </div>
                 )
       })}
       </div>
-      <button onClick={()=>uploadQuote()}>Save Changes</button>
+      </div>
+      </div>
+      <button onClick={()=>uploadQuote()} className='btn click'>Save Changes</button>
     </div>
     }
-    </>
+    </div>
     }
     </>
   )

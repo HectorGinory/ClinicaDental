@@ -67,3 +67,9 @@
     filter: brightness(1.1);
     border-radius: .6rem;
 }
+
+@media (max-width: 425px) {
+    .login-container {
+        width: 300px;
+    }
+}

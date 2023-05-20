@@ -5,6 +5,7 @@ import { userData } from '../userSlice'
 import Spinner from '../../common/Spinner/Spinner'
 import { useNavigate } from 'react-router'
 import { InputText } from '../../common/InputText/InputText'
+import './Profile.css'
 
 const Profile = () => {
 
@@ -63,6 +64,22 @@ const credentialsHandler = (e) => {
     })
       
     }
+
+    const formatedDate = (stringDate) => {
+      const date = new Date(stringDate);
+      const formattedDate = date.toLocaleDateString("en-GB", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      });
+    
+      const formattedTime = date.toLocaleTimeString("en-GB", {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+    
+      return `${formattedDate} ${formattedTime}`;
+    };
   return (
     <div className='flex-c-c'>
     {!user?.name ? 
@@ -70,8 +87,8 @@ const credentialsHandler = (e) => {
       <Spinner />
     </> 
     : 
-    <div className='profile-info container'>
-        <div className='principal-info'>
+    <div className='profile-info container flex-c-c'>
+        <div className='principal-info container flex-c-c'>
           {changeProfile ? <>
             <label>
             <p>Name:</p>
@@ -121,38 +138,30 @@ const credentialsHandler = (e) => {
                 value={credentials.address}
                 />
         </label>
-        <label>
-            <p>DNI:</p>
-            <InputText 
-                type={"text"}
-                className={"input-register"}
-                placeholder={"XXXXXXXXX"}
-                name={"dni"}
-                handler={credentialsHandler}
-                required={true}
-                value={credentials.dni}
-                />
-        </label>
+
         <button onClick={()=>updateUser()}>Set Info</button>
         </> :
           <>
+          <div className=''>
             <p>{user.name.charAt(0).toUpperCase() + user.name.slice(1)}</p>
             <p>{user.email.charAt(0).toUpperCase() + user.email.slice(1)}</p>
             <p>{user.number}</p>
             <p>{user.dni}</p>
             <p>{user.address}</p>
+          </div>
             <button onClick={()=>setChangeProfile(true)}>Change Info</button>
           </>}
         </div>
-        <div className='quotes-info'>
+        <div className='quotes-info container flex-c-c'>
           {userRdxData.credentials.user.rol === "Admin" ? 
-          <button onClick={()=>navigate("/admin")}>Check info</button> :
+          <div className='btn-admin flex-c-c'>
+            <button onClick={()=>navigate("/admin")}>Check admin info</button>
+          </div> :
           <div className='quote-list'>
             {quotes.map(quote => {
               return (
-                <div className='quote' onClick={()=>navigate(`/quote/${quote._id}`)}>
-                {/* <p>{quote.customer.name}</p> */}
-                <p>CITA SSSSS</p>
+                <div className='quote flex-c-c c' onClick={()=>navigate(`/quote/${quote._id}`)} key={quote._id}>
+                <p>{formatedDate(quote.dateOfQuote)}</p>
                 </div>
               )
             })}

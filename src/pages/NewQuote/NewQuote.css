@@ -1,0 +1,128 @@
+.newquote-container {
+    width: 70%;
+    padding: 2rem;
+}
+
+.choose-user {
+    height: 30%;
+    flex-direction: column;
+    color: #00afe4;
+    gap: 2rem;
+}
+
+.choose-user input {
+    width: 90%;
+    outline: none;
+    border: 1px solid #00afe4;
+    border-radius: 2rem;
+    text-align: center;
+}
+
+.choose-user label {
+    font-size: 1.4rem;
+    width: 90%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.choose-user .filtered-information {
+    height: 65%;
+    width: 90%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.choose-user .filtered-information .filtered-data {
+    width: 100%;
+    border-bottom: 1px solid #00afe43f;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 1rem;
+    height: 2rem;
+    color: #24b6f0;
+    display: flex;
+    font-size: 0.9rem;
+}
+
+.newQuote {
+    padding: 3rem;
+    width: 20rem;
+    flex-direction: column;
+    color: #00afe4;
+    gap: 2rem;
+}
+
+.newQuote .section {
+    width: 90%;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.newQuote .section input {
+    width: 60%;
+    outline: none;
+    border: 1px solid #00afe4;
+    border-radius: 2rem;
+    text-align: center;
+}
+
+.newQuote .section .selection {
+    height: 5rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 10rem;
+}
+
+
+.newQuote .section .selection .data {
+    height: 3rem;
+    width: 100%;
+    padding: .3rem 1rem;
+    border-bottom: .1rem solid #00afe4;
+}
+
+.btn {
+    padding: .4rem;
+    background: linear-gradient(to top, #2cb0fc, #00e4e4);
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border: .1rem solid #00afe4;
+    margin: 0.5rem;
+    border-radius: .3rem;
+    transition: .2s;
+}
+
+.btn:hover {
+    filter: brightness(1.1);
+    border-radius: .6rem;
+}
+
+@media (max-width: 500px) {
+    .choose-user .filtered-information {
+    height: 10rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    }
+
+    .newquote-form .newQuote {
+        font-size: .8rem;
+    }
+    .choose-user .filtered-information .filtered-data {
+        flex-direction: column;
+        height: 3rem;
+    }
+    .newquote-form .newQuote .section {
+        height: 3rem;
+        width: 80%;
+        padding: .5rem;
+
+    }
+
+    .newQuote .section .selection {
+        height: 100%;
+    }
+    
+}

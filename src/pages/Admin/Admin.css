@@ -92,11 +92,24 @@
     box-sizing: border-box;
     padding: 0 1rem;
     height: 2rem;
-    color: #002cbe;
+    color: #24b6f0;
     display: flex;
     font-size: 0.9rem;
 }
 
-.body-filterinformation .filtered-information .filtered-data label {
-    width: 45%;
+@media (max-width: 750px) {
+    .database-controller {
+        width: 15rem;
+        height: 20rem;
+        padding: 3rem;
+    }
+
+    .body-filterinformation {
+        width: 100%;
+    }
+
+    .body-filterinformation .filtered-information .filtered-data {
+        font-size: 0.7rem;
+        font-weight: 600;
+    }
 }

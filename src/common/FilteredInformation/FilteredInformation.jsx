@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { userData } from "../../pages/userSlice";
 import { findAllOfAny, getUserInfo } from "../../services/apiCalls";
+import { useNavigate } from "react-router-dom";
 
 export const FilteredInformation = ({ nameSection }) => {
   const [data, setData] = useState([]);
   const [criteria, setCriteria] = useState("");
   const path = nameSection.slice(0, nameSection.length - 1).toLowerCase();
   const userRdxData = useSelector(userData);
+  const navigate = useNavigate()
 
   const criteriaHandler = (e) => {
     setCriteria(e.target.value);
@@ -19,8 +21,8 @@ export const FilteredInformation = ({ nameSection }) => {
     if (criteria !== "") {
       const bringUsers = setTimeout(() => {
         findAllOfAny(userRdxData.credentials.token, path, criteria)
-          .then((searchResults) => {
-            setData(searchResults);
+          .then((res) => {
+            setData(res.sort());
           })
           .catch((error) => console.log(error));
       }, 375);
@@ -29,7 +31,7 @@ export const FilteredInformation = ({ nameSection }) => {
     } else {
       findAllOfAny(userRdxData.credentials.token, path, criteria).then(
         (res) => {
-          setData(res);
+          setData(res.sort());
         }
       );
     }
@@ -103,7 +105,7 @@ export const FilteredInformation = ({ nameSection }) => {
                   {!res.customer ? (
                     <></>
                   ) : (
-                    <div key={res._id} className="filtered-data">
+                    <div key={res._id} className="filtered-data click" onClick={()=>navigate(`/quote/${res._id}`)}>
                       <span>
                         {res.customer.name.charAt(0).toUpperCase() + res.customer.name.slice(1)} 
                       </span>
@@ -116,7 +118,6 @@ export const FilteredInformation = ({ nameSection }) => {
               );
             }
             if (nameSection === "Specialities") {
-              console.log(res)
               return (
                 <>   
                 {!res.price ? <></>:
