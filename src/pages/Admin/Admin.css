@@ -112,4 +112,12 @@
         font-size: 0.7rem;
         font-weight: 600;
     }
+    .body-filterinformation .input-section .date-info {
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        font-size: .9rem;
+    }    
 }

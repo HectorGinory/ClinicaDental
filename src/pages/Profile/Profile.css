@@ -103,14 +103,20 @@
         flex-direction: row;
         width: 90%;
         height: 10rem;
-        box-sizing: border-box;
     }
     .profile-info .quotes-info {
         flex-direction: row;
         width: 90%;
         height: 10rem;
+        padding: 1rem;
     }
     .quote {
         padding: 1rem;
+    }
+    .profile-info .principal-info .change-quote label {
+        font-size: .9rem;
+    }
+    .profile-info .principal-info .change-quote label .input {
+        height: 1.5rem;
     }
 }

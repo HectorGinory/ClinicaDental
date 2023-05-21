@@ -10,7 +10,6 @@ export const Admin = () => {
     const userRdxData = useSelector(userData)
 
     useEffect(()=> {
-        console.log(userRdxData);
         if(userRdxData.credentials.user.rol !== "Admin") {
             navigate("/")
         } 

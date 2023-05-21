@@ -16,8 +16,6 @@ export const FilteredInformation = ({ nameSection }) => {
   };
 
   useEffect(() => {
-    console.log(criteria)
-
     if (criteria !== "") {
       const bringUsers = setTimeout(() => {
         findAllOfAny(userRdxData.credentials.token, path, criteria)
@@ -67,7 +65,7 @@ export const FilteredInformation = ({ nameSection }) => {
       <div className="input-section flex-c-c">
         <p>{nameSection}</p>
         {nameSection === "Quotes" ? 
-        <div className="date-info">
+        <div className="date-info flex-c-c">
         <label className="flex-c-c">
           Since:
           <input type="date" onChange={(e)=>{setCriteria((prev) => ({...prev, dateOfQuote: e.target.value}))}}></input>

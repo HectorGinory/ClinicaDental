@@ -92,7 +92,7 @@ const NewQuote = () => {
   };
 
   return (
-    <div className="newquote-container container">
+    <div className="newquote-container container flex-c-c">
       <div className="newquote-form">
         {chooseCustomer ? (
           <div className="choose-user flex-c-c">

@@ -89,8 +89,10 @@ const credentialsHandler = (e) => {
     : 
     <div className='profile-info container flex-c-c'>
         <div className='principal-info container flex-c-c'>
-          {changeProfile ? <>
-            <label>
+          {changeProfile ? <
+          >
+          <div className='change-quote'>
+          <label>
             <p>Name:</p>
             <InputText 
                 type={"text"}
@@ -138,7 +140,7 @@ const credentialsHandler = (e) => {
                 value={credentials.address}
                 />
         </label>
-
+        </div>
         <button onClick={()=>updateUser()}>Set Info</button>
         </> :
           <>
