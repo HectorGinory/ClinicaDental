@@ -1,0 +1,42 @@
+.home-container{
+    width: 90%;
+    box-sizing: border-box;
+    justify-content: space-between;
+    padding: 1rem;
+    height: 30rem;
+}
+
+.text-container {
+    width: 45%;
+}
+
+.text-container h1, h2 {
+    color: #2cb0fc;
+    margin-left: .5rem;
+}
+
+.text-container p {
+    margin: 1rem 0;
+    margin-left: .5rem;
+    text-align: justify;
+}
+
+.image-container{
+    width: 45%;
+    height: 90%;
+}
+
+.image-container .image {
+    height: 100%;
+    margin-right: 1rem;
+}
+
+
+@media (max-width: 950px) {
+    .text-container {
+        width: 90%;
+    }
+    .image-container{
+        display: none;
+    }
+}
