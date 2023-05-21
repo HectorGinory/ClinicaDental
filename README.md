@@ -14,26 +14,25 @@ The chanllenge was to connect create a Frontend to our previous proyect, the bac
 <br>
 Taking into account the requirements, we can advise on the views
 necessary for the proper functioning of the application.
+
+
 - User Registration.
-<br>
-*PONER IMAGEN O GIF AQUI*
+<img src="./src/assets/register_page.png" style="width: 400px">
 
 - User login.
-<br>
-*PONER IMAGEN O GIF AQUI*
+<img src="./src/assets/login_page.png" style="width: 400px">
+
 - User profile.
-<br>
-*PONER IMAGEN O GIF AQUI*
-- Appointment search / creation / modification panel.
-<br>
-*PONER IMAGEN O GIF AQUI*
 - View of appointments that I have as a client (only my own).
-<br>
-*PONER IMAGEN O GIF AQUI*
-- View of all existing appointments (as a dentist).
-<br>
-*PONER IMAGEN O GIF AQUI*
+<img src="./src/assets/profile_page.png" style="width: 400px">
+
+- View of all existing appointments (as a admin).
+- Appointment search / creation / modification panel.
+<img src="./src/assets/quotes_page.png" style="width: 400px">
+
+
 - View of all users registered on the platform (such as
 administrator).
-<br>
-*PONER IMAGEN O GIF AQUI*
+<img src="./src/assets/users_page.png" style="width: 400px">
+
+
