@@ -28,14 +28,18 @@ const Register = () => {
       }
     
     const registerButton = () => {
+      if(credentials.password.length > 6) {
         registerUsers(credentials)
-          .then((res)=> {
-            dispatch(login(res))
-            navigate("/")
-          })
-          .catch(e => {
-            console.log('ERROR:', e);
-          })
+        .then((res)=> {
+          dispatch(login(res))
+          navigate("/")
+        })
+        .catch(e => {
+          console.log('ERROR:', e);
+        })
+      } else {
+        
+      }
       }
   return (
       <div className='register-container flex-c-c container'>
@@ -76,6 +80,7 @@ const Register = () => {
                 required={true}
                 value={credentials.password}
                 />
+      {credentials.password.length < 6 && <p className='password_advice'>The password must have more than 6 characters</p>}
         </label>
         <label>
             <p>Number:</p>

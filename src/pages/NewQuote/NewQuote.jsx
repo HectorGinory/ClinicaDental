@@ -90,7 +90,10 @@ const NewQuote = () => {
     }));
     setChooseCustomer(false);
   };
-
+  const ref = React.useRef('inputDate');
+  console.log(ref)
+  const today = new Date().toISOString().split('T')[0];
+  // React.findDOMNode(ref).setAttribute('min', today)
   return (
     <div className="newquote-container container flex-c-c">
       <div className="newquote-form">
@@ -121,7 +124,8 @@ const NewQuote = () => {
         ) : (
           <div className="newQuote container flex-c-c">
             <label className="container section flex-c-c">Date
-            <input type="date" onChange={(e)=>setDateInfo((prev) => ({...prev, dateOfQuote: e.target.value}))}></input>
+            <input type="date" onChange={(e)=>setDateInfo((prev) => ({...prev, dateOfQuote: e.target.value}))} min={today} max={new Date(new Date().getTime() + 2628288000).toISOString().split('T')[0]}
+            ></input>
             </label>
             <label className="container section flex-c-c">Quote
             <div className="container flex-c-c selection">

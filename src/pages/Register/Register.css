@@ -67,6 +67,11 @@
     filter: brightness(1.1);
     border-radius: .6rem;
 }
+.password_advice{
+    font-size: .8rem;
+    width: 100%;
+    text-align: center;
+}
 
 @media (max-width: 425px) {
     .register-container {
