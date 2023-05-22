@@ -1,7 +1,7 @@
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
-// const url = 'https://dentistclinicbackend-production.up.railway.app/'
+// const url = "https://dentistclinicbackend-production.up.railway.app/"
 const url = 'http://localhost:3000/'
 const config = (token) => {
     const config = {
